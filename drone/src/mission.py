@@ -4,7 +4,6 @@ from config import (
     BATTERY_FLOOR,
     ASCENT_HEIGHT_CM,
     MAZE_ENTRY_CM,
-    FINAL_LEG_CM,
     FLIP_DIR,
     STEP_PAUSE,
 )
@@ -53,7 +52,6 @@ class FlightPlan:
         self._step(f"Ascend {ASCENT_HEIGHT_CM} cm", self.drone.move_up(ASCENT_HEIGHT_CM))
         self._step(f"Flip ({FLIP_DIR})", self.drone.flip(FLIP_DIR))
         self._step(f"Maze entry {MAZE_ENTRY_CM} cm", self.drone.move_forward(MAZE_ENTRY_CM))
-        self._step(f"Final leg {FINAL_LEG_CM} cm", self.drone.move_forward(FINAL_LEG_CM))
         self._step("Landing", self.drone.land())
 
         print("--- Flight plan complete ---")
